@@ -15,9 +15,9 @@ public class TeleportListener implements Listener {
     {
       Block block = e.getClickedBlock();
 
-      if (Main.portals.containsKey(block))
+      if (Portals.portalAtBlock(block))
       {
-        Main.portals.get(block).teleport(e.getPlayer());
+        Portals.getPortalFromBlock(block).teleport(e.getPlayer());
       }
     }
   }

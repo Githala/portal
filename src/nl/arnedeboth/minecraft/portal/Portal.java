@@ -2,9 +2,7 @@ package nl.arnedeboth.minecraft.portal;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.World;
 import org.bukkit.block.Block;
-import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Player;
 
 public class Portal {
@@ -54,9 +52,8 @@ public class Portal {
   {
     if (pair != null) {
       Location location = pair.getSign().getLocation();
-      BlockFace face = ((org.bukkit.material.Sign) pair.getSign().getState().getData()).getAttachedFace().getOppositeFace();
 
-      player.teleport(location.add(face.getModX(), face.getModY(), face.getModZ()));
+      player.teleport(location);
     }
   }
 
@@ -67,7 +64,7 @@ public class Portal {
     double y = loc.getY();
     double z = loc.getZ();
 
-    return portalName + loc.getWorld().getName() + " " + x + " " + y + " " + z;
+    return portalName + " " + loc.getWorld().getName() + " " + x + " " + y + " " + z;
   }
 
   public static Portal fromTextData(String data)
@@ -80,4 +77,6 @@ public class Portal {
 
     return new Portal(block, portalName);
   }
+
+
 }
